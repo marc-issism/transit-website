@@ -1,0 +1,7 @@
+class RoutePrediction {
+
+    constructor(direction_title, time_predictions) {
+        this.direction = direction;
+        this.time_predictions = time_predictions;
+    }
+}

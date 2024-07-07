@@ -1,0 +1,11 @@
+
+html {
+    font-family: monospace;
+    text-align: center;
+}
+.container {
+    display: grid;
+}
+.header {
+    font-size:x-large;
+}
