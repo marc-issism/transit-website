@@ -25,10 +25,9 @@ function get_stop_prediction() {
             }
         })
         .then(data => {
-            console.log(data);
             
             if (!JSON.stringify(data).includes("predictions")) {
-                console.log("Invalid Stop ID");
+                document.getElementById("stopPredictionDisplay").innerHTML = "<br/>Invalid Stop Number"
                 return;
             }
 
