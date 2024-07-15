@@ -30,4 +30,6 @@ html {
     background-color: gray;
 }
 
-#map { height: 180px; }
+#map {
+    height: 100%;
+  }
