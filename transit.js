@@ -7,6 +7,8 @@ class RoutePrediction {
     }
 }
 
+
+
 const STOP_URL = "https://retro.umoiq.com/service/publicJSONFeed?command=predictions&a=ttc&stopId=";
 
 function get_stop_prediction() {
