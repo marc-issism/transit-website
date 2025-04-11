@@ -5,44 +5,18 @@
 
     <head>
 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="./styles.css">
         <script src="transit.js"></script>
-        <script type="module" src="./googleMaps.js"></script>
-
-        <!-- GOOGLE MAPS API -->
-        <script>
-            (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
-              key: "AIzaSyAoAYgMV6JbQdIsOzzlwgzaLAil8Hlh9lg",
-              v: "weekly",
-              // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
-              // Add other bootstrap parameters as needed, using camel case.
-            });
-
-            let map;
-
-            async function initMap() {
-            //const { Map } = await google.maps.importLibrary("maps");
-
-            map = new Map(document.getElementById("map"), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 10,
-            });
-            }
-
-            initMap();
-
-          </script>
-
-        
-
-
-        </script>
+        <meta http-equiv='cache-control' content='no-cache'> 
+        <meta http-equiv='expires' content='0'> 
+        <meta http-equiv='pragma' content='no-cache'>    
+        <title>TTC NextBus</title>
 
     </head>
 
 
     <header>
-        <h1>TTC BUS INFO</h1>
+        <h1>TTC BUS/STREETCAR INFO</h1>
     </header>
 
 
@@ -50,43 +24,20 @@
     <main>
         <div class="container">
             <div class="item stopPrediction">
-                <p class="header">Next Bus Prediction</p>
-                <input type="text" id="stopPredictionInput" placeholder="Stop Number">
-                <button id="stopPredictionButton" onclick="get_stop_prediction()"> Enter </button>
-                <div class="display" id="stopPredictionDisplay">
-                    
-                </div>
 
-            </div>
-            <div class="item buses">
-                <p class="header">Buses on Route</p>
-                <input type="text" id="busesInput" placeholder="Route Number">
-                <button id="busesButton" onclick=""> Enter </button>
-                <br>
-                <text>Include RAD buses? </text><input type="checkbox" class="checkbox-round" id="RADbusesCheckbox">
-
-                <div class="display" id="busesDisplay"></div>
-            </div>
-            <div class="item item-3">
-                <p class="header"> Route and Vehicle Display </p>
-            </div>
-            <div class="item map" id="map">
-                <p class="sub-item sub-item-4">
-                   
-                </p>
+                <form onsubmit="get_stop_prediction()">
+                    <p class="header">Bus Stop Times</p>
+                    <input type="text" id="stopPredictionInput" placeholder="Stop Number">
+                    <input type="submit" id="stopPredictionButton" onsubmit="get_stop_prediction()"></input>
+                    <div class="display" id="stopPredictionDisplay"></div>
+                </form>
             </div>
 
-            <div id="map"></div>
 
 
         </div>
     </main>
     
-
-    <div id="routeTextBox">
-        <input type="text" id="routeInput">
-        <button id="btn" onclick="get_predictions()">Submit</button>
-    </div>
 
     <div id="display"></div>
 

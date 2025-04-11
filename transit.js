@@ -12,8 +12,11 @@ class RoutePrediction {
 const STOP_URL = "https://retro.umoiq.com/service/publicJSONFeed?command=predictions&a=ttc&stopId=";
 
 function get_stop_prediction() {
+
+    // grab value
     let stop_id = document.getElementById("stopPredictionInput").value;
 
+    // clear value
     document.getElementById("stopPredictionDisplay").innerHTML = "";
 
     fetch(STOP_URL + stop_id)

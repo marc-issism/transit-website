@@ -5,12 +5,16 @@ html {
     color-scheme: light dark;
 }
 
+header {
+    padding-top: 1em;
+}
+
 .container {
     display: grid;
 }
 
 .header {
-    font-size:x-large;
+    font-size:2em;
 }
 
 .checkbox-round {
@@ -33,3 +37,7 @@ html {
 #map {
     height: 100%;
   }
+
+#didsplay {
+    font-size: 1em;
+}
