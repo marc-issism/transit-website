@@ -14,7 +14,7 @@ const STOP_URL = "https://retro.umoiq.com/service/publicJSONFeed?command=predict
 function get_stop_prediction() {
 
     // grab value
-    let stop_id = document.getElementById("stopPredictionInput").value;
+    let stop_id = document.getElementById("stopPredictionInput").value.trim();
 
     // clear value
     document.getElementById("stopPredictionDisplay").innerHTML = "";
@@ -62,6 +62,7 @@ function get_stop_prediction() {
             }
             */
             
+            document.getElementById("stopPredictionInput").value = "";
             display_stop_predictions(route_predictions);
 
         }) 
@@ -130,9 +131,6 @@ function process_prediction(prediction) {
 
 }
 
-
-
-
 function get_predictions() {
     let stop_id = document.getElementById("routeInput").value;
     console.log(stop_id)
@@ -174,7 +172,7 @@ function get_predictions() {
 
 }
 
-//get_predictions(15116);
+
 
 
 

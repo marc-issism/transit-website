@@ -1,21 +1,100 @@
+:root {
+    --red: #dc5454;
+    --pale: #fef9f3;;
+    --black: #333;
+    --header-size: 28px;
+    --content-size: 22px;
+}
+
+@font-face {
+    font-family: TorontoSubway;
+    src: url("./Toronto Subway.ttf");
+}
+
 
 html {
-    font-family: monospace;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    color-scheme: light dark;
+    background-color: var(--pale);
 }
 
-header {
-    padding-top: 1em;
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.container {
-    display: grid;
+.page-header {
+    width: 100%;
+    background-color: var(--red);
+    font-size: var(--header-size);
+    color: white;
+    font-family: TorontoSubway;
 }
 
-.header {
-    font-size:2em;
+.page-title {
+    background-color: #ab3434;
+    font-size: calc(var(--header-size) + 4px);
+    padding: 11px 15px;
+    
 }
+
+.topnav {
+    overflow: hidden;
+    
+}
+
+.topnav a {
+    float: left;
+    padding: 13px 18px;
+    text-decoration: none;
+    color:white;
+}
+
+
+
+.topnav a:hover {
+    background-color: white;
+    color: var(--red);
+}
+
+
+.topnav-right {
+    float:right;
+}
+
+.stopPrediction {
+    display: flex;
+    flex-direction: column;
+}
+
+.stopPrediction p {
+    font-size: var(--content-size);
+}
+
+
+#stopPredictionInput {
+    height: 40px;
+    width: 100px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: var(--content-size);
+}
+
+#stopPredictionDisplay dirheader{
+    font-size: calc(var(--header-size) - 6px);
+    margin-top: 10px;
+}
+
+#stopPredictionDisplay dirtime {
+    font-size: calc(var(--content-size) - 4px);
+    margin: 0px 5px;
+}
+
+#stopPredictionButton {
+    border-radius: 4px;
+}
+
+
 
 .checkbox-round {
     width: 1.3em;
@@ -34,8 +113,14 @@ header {
     background-color: gray;
 }
 
+#mapholder {
+    height: 500px;
+    width: 100%;
+}
+
 #map {
     height: 100%;
+    border: 1px solid white;
   }
 
 #didsplay {
