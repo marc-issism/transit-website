@@ -90,6 +90,7 @@ function display_stop_predictions(route_predictions) {
             document.getElementById("stopPredictionDisplay").appendChild(dir_time_element);
             document.getElementById("stopPredictionDisplay").appendChild(document.createElement("br"));
         }
+        document.getElementById("stopPredictionDisplay").appendChild(document.createElement("br"));
     }
     const element = document.createElement("p");
                 document.getElementById("display").appendChild(element);
