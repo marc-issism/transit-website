@@ -32,10 +32,15 @@ body {
 }
 
 .page-title {
+    display: flex;
     background-color: #ab3434;
-    font-size: calc(var(--header-size) + 4px);
+    font-size: 65px;
     padding: 11px 15px;
-    
+    background-image: url("streetcar.jpg");
+    height: 175px;
+    opacity: 90%;
+    place-content: center;
+    align-items: center;
 }
 
 .topnav {
@@ -64,13 +69,13 @@ body {
 
 .stopPrediction {
     display: flex;
+    margin-top: 35px;
     flex-direction: column;
 }
 
 .stopPrediction p {
     font-size: var(--content-size);
 }
-
 
 #stopPredictionInput {
     height: 40px;
@@ -80,14 +85,14 @@ body {
     font-size: var(--content-size);
 }
 
-#stopPredictionDisplay dirheader{
-    font-size: calc(var(--header-size) - 6px);
-    margin-top: 10px;
+dirHeader {
+    font-size: calc(var(--content-size) + 2px );
+
 }
 
-#stopPredictionDisplay dirtime {
-    font-size: calc(var(--content-size) - 4px);
-    margin: 0px 5px;
+dirTime {
+    font-size: calc(var(--content-size));
+
 }
 
 #stopPredictionButton {
