@@ -44,7 +44,7 @@ async function initMap() {
 
   let map = new Map(document.getElementById("map"), {
     center: { lat: 43.671070, lng: -79.347015 },
-    zoom: 9,
+    zoom:12,
   });
 }
 
@@ -76,7 +76,7 @@ async function updateMap(routes) {
   const { Map } = await google.maps.importLibrary("maps");
 
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 9,
+    zoom: 12,
     center: { lat: 43.651070, lng: -79.347015 },
     mapTypeId: "terrain",
   });
