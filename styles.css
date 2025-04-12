@@ -31,6 +31,7 @@ body {
     font-size: var(--header-size);
     color: white;
     font-family: TorontoSubway;
+    margin-bottom: 35px;
 }
 
 .page-title {
@@ -56,29 +57,31 @@ body {
     color:white;
 }
 
-.topnav a:hover {
+.hoverable:hover {
     background-color: white;
     color: var(--red);
 }
 
-
+.active {
+    background-color: #b4afaf;
+}
 
 .topnav-right {
     float:right;
 }
 
-.stopPrediction {
+.verticalContainer {
     display: flex;
-    margin-top: 35px;
     flex-direction: column;
+    align-items: center;
 }
 
-.stopPrediction p {
+.verticalContainer p {
     font-size: var(--content-size);
 }
 
 #stopPredictionInput {
-    height: 40px;
+    height: 35px;
     width: 100px;
     border-radius: 8px;
     text-align: center;
@@ -99,23 +102,15 @@ dirTime {
     border-radius: 4px;
 }
 
-
-
-.checkbox-round {
-    width: 1.3em;
-    height: 1.3em;
-    background-color: white;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid #ddd;
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-    cursor: pointer;
+#startRouteInput {
+    margin: 0px 10px;
 }
 
-.checkbox-round:checked {
-    background-color: gray;
+#routeCountInput {
+    height: 35px;
+    width: 50px;
+    border-radius: 8px;
+    font-size: var(--content-size);
 }
 
 #mapholder {
@@ -124,13 +119,51 @@ dirTime {
 }
 
 #map {
+    
     height: 100%;
-    border: 1px solid white;
-  }
-
-#didsplay {
-    font-size: 1em;
+    width: 90%;
+    border: 1.5px solid var(--black);
 }
+
+#challengeForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: var(--content-size);
+}
+
+.interactable {
+    font-size: var(--content-size);
+    height: 35px;
+    border-radius: 8px;
+}
+
+#routeCountInput {
+    margin: 0px 10px;
+}
+
+#connectedCheckbox {
+    margin-right: 15px;
+}
+
+#challengeButton {
+    width: 90px;
+}
+
+#challengeResults {
+    margin-top: 20px;
+    font-size: var(--content-size);
+    margin-bottom: 20px;
+}
+
+route {
+    font-size: var(--content-size);
+}
+
+#resultsPanel {
+    margin-bottom: 50px;
+}
+
 
 @media only screen and (max-width: 790px) {
     :root {
@@ -148,12 +181,20 @@ dirTime {
         align-items: center;
     }
 
+    .topnav-right {
+        float: none;
+    }
+
     .topnav a {
         padding: 6.5px 18px;
+        border-top: 2px solid rgb(134, 0, 0);
+        width: 100%;
     }
 
     .topnav-right {
-        float: none;
+        display:flex;
+        align-items: center;
+        width: 100%;
     }
 
     .stopPrediction {

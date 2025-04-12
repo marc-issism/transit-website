@@ -1,6 +1,6 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta http-equiv='cache-control' content='no-cache'> 
@@ -8,16 +8,14 @@
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width">
     <title>TTC Explorer</title>
-
 </head>
-
 <body>
     
     <div class="page-header">
         <div class="page-title"><div class="page-title-text">TTC EXPLORER</div></div>
         <div class="topnav">
-            <a class="active">Predictions</a>
-            <a class="hoverable" href="routeInfo.html">Route Info</a>
+            <a class="hoverable" href="/">Predictions</a>
+            <a class="active">Route Info</a>
             <a class="hoverable"href="challenge.html">Challenge</a>
             <div class="topnav-right">
                 <a class="hoverable" href="https://marcuscua.com" target="_blank">marcuscua.com</a>
@@ -26,22 +24,5 @@
     </div>
 
 
-    <div class="verticalContainer" id="stopPredictionPanel">
-        <form onsubmit="get_stop_prediction(); return false;">
-            <p class="header">Enter a stop ID:</p>
-            <input type="text" id="stopPredictionInput" placeholder="Stop ID">
-            <!-- <input type="submit" id="stopPredictionButton"></input> -->
-        </form>
-        <div id="stopPredictionDisplay"></div>
-        <!-- <div id="display"></div> -->
-    </div>
-
-    
-    <script src="transit.js"></script>
-    
-
 </body>
-
-
-
 </html>
