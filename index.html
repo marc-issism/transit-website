@@ -28,8 +28,10 @@
 
     <div class="verticalContainer" id="stopPredictionPanel">
         <form onsubmit="get_stop_prediction(); return false;">
-            <p class="header">Enter a stop ID:</p>
-            <input type="text" id="stopPredictionInput" placeholder="Stop ID">
+            <div class="verticalContainer">
+                <label>Stop Number:</label>
+                <input class="interactable" type="number" id="stopPredictionInput" placeholder="Stop ID" value="15116" min="0" max="99999">
+            </div>
             <!-- <input type="submit" id="stopPredictionButton"></input> -->
         </form>
         <div id="stopPredictionDisplay"></div>

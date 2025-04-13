@@ -69,26 +69,65 @@ async function getPathForRoute(route) {
   return path;
 }
 
+function getWholeRoute(route) {
+  fetch("data/routeInfo.json").then(res=>res.json()).then(json=>{
+    let direction = json["routeInfo"][route]["direction"][0];
+    let directionOptions = json["routeInfo"][route]["direction"];
+    let max = 0;
+    for (let j = 0; j < directionOptions.length; j++) {
+      if (directionOptions[j].length > max) {
+        max = directionOptions[j];
+        direction = directionOptions[j];
+      }
+    }
+    return direction
+  });
+}
+
 // console.log(getPathForRoute(68));
 
 async function updateMap(routes) {
 
   const { Map } = await google.maps.importLibrary("maps");
 
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
-    center: { lat: 43.651070, lng: -79.347015 },
-    mapTypeId: "terrain",
-  });
+  
 
   
   fetch("data/routeInfo.json").then(res=>res.json()).then(json=>{
    
+    let centerLat =43.651070;
+    let centerLng =-79.347015;
+    let zoomIn = 12;
+    if (routes.length==1) {
+      centerLat = (Number(json["routeInfo"][routes[0]]["latMax"]) + Number(json["routeInfo"][routes[0]]["latMin"]))/2;
+      centerLng = (Number(json["routeInfo"][routes[0]]["lonMin"]) + Number(json["routeInfo"][routes[0]]["lonMax"]))/2;
+    }
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: zoomIn,
+      center: { lat: centerLat, lng: centerLng },
+      mapTypeId: "terrain",
+    });
+
     let tripPaths = [];
+    let randomColors = [];
+    randomColors.push("#FF0000");
+    for (let route in routes) {
+      randomColors.push(getRandomHexColor());
+    }
 
     for (let i = 0; i < routes.length; i++) {
       let tripPath = [];
       let direction = json["routeInfo"][routes[i]]["direction"][0]["stop"];
+      let directionOptions = json["routeInfo"][routes[i]]["direction"];
+      let max = 0;
+      for (let j = 0; j < directionOptions.length; j++) {
+        if (directionOptions[j].length > max) {
+          max = directionOptions[j];
+          direction = directionOptions[j]["stop"];
+        }
+      }
+
       let stops = json["routeInfo"][routes[i]]["stop"];
       for (let j = 0; j < direction.length; j++) {
         let stopTag = direction[j]["tag"];
@@ -107,7 +146,7 @@ async function updateMap(routes) {
       let polylines = new google.maps.Polyline({
         path: tripPaths[i],
         geodesic: true,
-        strokeColor: getRandomHexColor(),
+        strokeColor: randomColors[i],
         strokeOpacity: 1.0,
         strokeWeight: 4,
         })
@@ -123,8 +162,8 @@ async function getRandomRoutes() {
 
   n = document.getElementById("routeCountInput").value;
   startRoute = document.getElementById("startRouteInput").value;
-  if (n > 20) {
-    document.getElementById("challengeResults").innerHTML = "Please pick between a range of 1 to 20 random routes.";
+  if (n > 50) {
+    document.getElementById("challengeResults").innerHTML = "Please pick between a range of 1 to 50 random routes.";
     return;
   }
 
@@ -162,7 +201,7 @@ async function getRandomRoutes() {
     .then(res => res.json())
     .then(json => {
       document.getElementById("challengeResults").innerHTML = "";
-      for (route of routes) {
+      for (let route of routes) {
         const routeElement = document.createElement("route");
         try {
           routeElement.innerHTML = json.routeInfo[route].title;
@@ -177,6 +216,25 @@ async function getRandomRoutes() {
     });
 
     updateMap(routes);
+}
+
+function getRouteInfo() {
+  let route = String(document.getElementById("routeInfoInput").value);
+  updateMap([route]);
+
+  fetch("data/routeInfo.json").then(res => res.json()).then(json=>{
+    document.getElementById("routeInfoDisplay").innerHTML = "";
+    stops = [];
+    const routeTitle = document.createElement("routeTitle");
+    routeTitle.innerHTML = json["routeInfo"][route]["title"];
+    document.getElementById("routeInfoDisplay").appendChild(routeTitle);
+    for (let i=0; i < Math.floor(json["routeInfo"][route]["stop"].length/2); i++) {
+      const stopTitle = document.createElement("stopTitle");
+      stopTitle.innerHTML = json["routeInfo"][route]["stop"][i]["title"] + " | " + (json["routeInfo"][route]["stop"][i]["stopId"] || "");
+      document.getElementById("routeInfoDisplay").appendChild(stopTitle);
+    }
+  });
+
 }
 
 initMap();

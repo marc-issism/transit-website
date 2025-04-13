@@ -25,10 +25,12 @@
 
     <div id="challengePanel">
         <form id="challengeForm" onsubmit="getRandomRoutes(); return false;">
-            <p>Generate <input class="interactable" type="number" id="routeCountInput" value="5" min="1" max="20"></input> random <u>connected</u> routes</p>
-            <p> Starting Route: <input class="interactable" type="number" id="startRouteInput" max="999" min="1" value="68"></p>
-            <!-- <p><input class="checkbox-round" type="checkbox" checked="true" id="connectedCheckbox">Connected Routes?</input></p> -->
-            <input class="interactable" type="button" value="Submit" id="challengeButton" onclick="getRandomRoutes()">
+            <div class="verticalContainer">
+                <label>Generate <input class="interactable" type="number" id="routeCountInput" value="5" min="1" max="20"></input> random <u>connected</u> routes</label>
+                <label> Starting Route: <input class="interactable" type="number" id="startRouteInput" max="999" min="1" value="68"></label>
+                <!-- <p><input class="checkbox-round" type="checkbox" checked="true" id="connectedCheckbox">Connected Routes?</input></p> -->
+                <input class="interactable" type="button" value="Submit" id="challengeButton" onclick="getRandomRoutes()">
+            </div>
         </form>
     </div>
 

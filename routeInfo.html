@@ -23,6 +23,27 @@
         </div>
     </div>
 
+    <div class="verticalContainer" id="routeInfoPanel">
+        <form onsubmit="getRouteInfo(); return false;">
+            <div class="verticalContainer">
+                <label>Route Number:</label>
+                <input class="interactable" type="number" id="routeInfoInput" value="510" max="999" min="1">
+            </div>
+        </form>
+
+        <div class="verticalContainer" id="routeInfoDisplay">
+
+        </div>
+
+        <div class="verticalContainer" id="mapholder">
+            <div id="map">
+    
+            </div>
+        </div>
+    </div>
+
+    <script src="googleMaps.js"></script>
+    <script src="routeInfo.js"></script>
 
 </body>
 </html>
