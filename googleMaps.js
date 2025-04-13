@@ -230,7 +230,7 @@ function getRouteInfo() {
     document.getElementById("routeInfoDisplay").appendChild(routeTitle);
     for (let i=0; i < Math.floor(json["routeInfo"][route]["stop"].length/2); i++) {
       const stopTitle = document.createElement("stopTitle");
-      stopTitle.innerHTML = json["routeInfo"][route]["stop"][i]["title"] + " | " + (json["routeInfo"][route]["stop"][i]["stopId"] || "");
+      stopTitle.innerHTML = json["routeInfo"][route]["stop"][i]["title"] + " | " + (json["routeInfo"][route]["stop"][i]["stopId"] || "None");
       document.getElementById("routeInfoDisplay").appendChild(stopTitle);
     }
   });

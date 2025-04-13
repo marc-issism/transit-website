@@ -3,8 +3,8 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv='expires' content='0'>
     <meta http-equiv='pragma' content='no-cache'>
     <meta name="viewport" content="width=device-width">
     <title>TTC Explorer</title>
@@ -23,27 +23,28 @@
         </div>
     </div>
 
-    <div id="challengePanel">
-        <form id="challengeForm" onsubmit="getRandomRoutes(); return false;">
-            <div class="verticalContainer">
-                <label>Generate <input class="interactable" type="number" id="routeCountInput" value="5" min="1" max="20"></input> random <u>connected</u> routes</label>
-                <label> Starting Route: <input class="interactable" type="number" id="startRouteInput" max="999" min="1" value="68"></label>
-                <!-- <p><input class="checkbox-round" type="checkbox" checked="true" id="connectedCheckbox">Connected Routes?</input></p> -->
-                <input class="interactable" type="button" value="Submit" id="challengeButton" onclick="getRandomRoutes()">
-            </div>
-        </form>
-    </div>
+    <div class="container" id="challengeForm">
+        <div id="challengePanel" class="verticalContainer">
+            <form onsubmit="getRandomRoutes(); return false;">
+                <div class="verticalContainer">
+                    <label>Generate <input class="interactable" type="number" id="routeCountInput" value="5" min="1" max="20"></input> random <u>connected</u> routes</label>
+                    <label> Starting Route: <input class="interactable" type="number" id="startRouteInput" max="999" min="1" value="68"></label>
+                    <!-- <p><input class="checkbox-round" type="checkbox" checked="true" id="connectedCheckbox">Connected Routes?</input></p> -->
+                    <input class="interactable" type="button" value="Submit" id="challengeButton" onclick="getRandomRoutes()">
+                </div>
+            </form>
 
-    <div id="resultsPanel" class="verticalContainer">
-        <div id="challengeResults" class="verticalContainer">
-            
+            <div id="challengeResults" class="verticalContainer">
+
+            </div>
+
         </div>
-        <div class="verticalContainer" id="mapholder">
-            <div id="map">
+
     
+        <div id="mapholder" class="verticalContainer">
+            <div id="map">
             </div>
         </div>
-        
 
     </div>
 
