@@ -54,14 +54,14 @@ function get_stop_prediction() {
                 route_predictions = route_predictions.concat(process_direction(predictions.direction));
             }
 
-            /* DEBUGGING 
+            
             for (route of route_predictions) {
                 console.log(route.title);
                 for (time of route.time_predictions) {
                     console.log(time + " minutes");
                 }
             }
-            */
+            
             
             document.getElementById("stopPredictionInput").value = "";
             display_stop_predictions(route_predictions);
