@@ -192,13 +192,12 @@ stopTitle {
 
 #routeInfoDisplay {
     margin-bottom: var(--edge-margin);
-    width: 600px;
+    width: 100%;
 }
 
 #routeInfoForm {
     margin-left:var(--edge-margin);
 }
-
 
 @media only screen and (max-width: 790px) {
     :root {
